@@ -142,13 +142,6 @@
   </url>
   
   <url>
-    <loc>http://wudiblog.com//404.html</loc>
-    
-    <lastmod>2019-02-01T07:25:31.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://wudiblog.com/categories/index.html</loc>
     
     <lastmod>2019-02-01T07:25:31.000Z</lastmod>
@@ -157,6 +150,13 @@
   
   <url>
     <loc>http://wudiblog.com/tags/index.html</loc>
+    
+    <lastmod>2019-02-01T07:25:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wudiblog.com//404.html</loc>
     
     <lastmod>2019-02-01T07:25:31.000Z</lastmod>
     
