@@ -603,11 +603,14 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
   <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
   <script type="text/javascript">
   var gitalk = new Gitalk({
-    clientID: 'eead254f4a7bb800557d',
-    clientSecret: 'bd56a2ab1641318727e7cf680bbaa1eb8f1ef805',
+    enable: true,
+    ClientID: 'eead254f4a7bb800557d',
+    ClientSecret: 'bd56a2ab1641318727e7cf680bbaa1eb8f1ef805',
     repo: 'Comments',
-    owner: 'DemoMath',
-    admin: ['DemoMath'],
+    <!--owner: 'DemoMath',-->
+    githubID: 'DemoMath',
+    <!--admin: ['DemoMath'],-->
+    adminUser: ['DemoMath'],
     id: md5(location.pathname),
     distractionFreeMode: true
   })
