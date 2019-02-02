@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wudiblog.com/"/>
-  <updated>2019-02-02T07:19:56.483Z</updated>
+  <updated>2019-02-02T08:30:36.896Z</updated>
   <id>http://wudiblog.com/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>18年公司年会</title>
+    <link href="http://wudiblog.com/2019/01/29/18%E5%B9%B4%E5%85%AC%E5%8F%B8%E5%B9%B4%E4%BC%9A/"/>
+    <id>http://wudiblog.com/2019/01/29/18年公司年会/</id>
+    <published>2019-01-29T08:27:03.000Z</published>
+    <updated>2019-02-02T08:30:36.896Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2019/01/29/18年公司年会/image1.png" alt="image1"></p><p>万年不中奖的体质决定了抽奖环节我只能干看着…</p><p><img src="/2019/01/29/18年公司年会/image2.png" alt="image2"></p><p>部门获奖，今年团队的努力得到了肯定，来年继续加油！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/2019/01/29/18年公司年会/image1.png&quot; alt=&quot;image1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;万年不中奖的体质决定了抽奖环节我只能干看着…&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/2019/01/29/18年公司年会/image2.png&quot; al
+      
+    
+    </summary>
+    
+      <category term="工作" scheme="http://wudiblog.com/categories/%E5%B7%A5%E4%BD%9C/"/>
+    
+    
+      <category term="工作" scheme="http://wudiblog.com/tags/%E5%B7%A5%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「借鉴」基于多列卷积神经网络的单图像人群计数</title>
+    <link href="http://wudiblog.com/2019/01/10/%E5%9F%BA%E4%BA%8E%E5%A4%9A%E5%88%97%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E7%9A%84%E5%8D%95%E5%9B%BE%E5%83%8F%E4%BA%BA%E7%BE%A4%E8%AE%A1%E6%95%B0/"/>
+    <id>http://wudiblog.com/2019/01/10/基于多列卷积神经网络的单图像人群计数/</id>
+    <published>2019-01-10T08:39:55.000Z</published>
+    <updated>2019-02-02T08:57:17.112Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="核心实验"><a class="markdownIt-Anchor" href="#核心实验"></a> 核心实验</h4><ol><li><p>手动提取特征回归人数</p><p>a) 解决人群计数问题的传统的做法是手动设计并提取各种特征(Hand-craftedFeatures)，然后再基于这些特征训练一个线性或非线性函数来回归人头数。此类 算法大多三个步骤: 1)前景分割;2)特征提取;3)人数回归。接下来将对这三个步骤分别做介绍。</p><p>​i. 前景分割 前景(人群)分割的目的是将人群从图像中分割出来便于后面的特征提取， 分割性能的好坏直接关系的最终的计数精度，因此这是限制传统算法性能的一个 重要因素。常用的分割算法有:光流法(Optical Flow)、混合动态纹理(Mixture of Dynamic Textures)、小波分析(Wavelets) 等。</p><p>​ii. 特征提取 在完成前景分割之后，紧接着就是从分割得到的前景(人群)提取各种不同 的低层特征(Low-level Features)，常用的特征有:人群面积和周长(Area and Perimeter of Crowd Mask)、边的数量(Edge Count)、边的方向(Edge Orientation)、 纹理特征(Texture Features)、闵可夫斯基维度(Minkowski Dimension)等。</p><p>​iii. 人数回归 该步骤的目的是将上一步提取到的特征回归到图像中的人数，回归可以是简 单的线性回归，也可以用复杂的非线性回归。常用的回归方法有:线性回归(Linear Regression)、分段线性回归(Piece-wise Linear Regression)、脊回归(Ridge Regression)、高斯过程回归(Gaussian Process Regression)等。</p><p>b) 而对于单张图像而言没有运动信息，那么人群分割就显得非常困难，因此此 类算法一般直接从整张图像或者其子区域提取特征，然后再计算图像中人群数量。 通过查询网上资料，最终确定为利用 python 以及 python-opencv 简单地实现 算法，达到人脸检测、人头检测等基本目的。</p></li><li><p>深度卷积神经网络</p><p>基于深度学习的人群分析技术，不再采用人为定义特征的方式去判断目标是 否为“人”。通过使用大量数据训练模型，计算机可以自行学习并抽象出人群的 概念，并有效提取出针对人群分析有效的特征。这种针对人群整体的分析方法有 效克服了传统的基于人的个体分析方法所无法解决的大规模复杂场景的适应性 问题，并且人数统计精确度达到 95%以上。下图为针对人群密度估计的卷积神经 网络结构图:</p><p><img src="/2019/01/10/基于多列卷积神经网络的单图像人群计数/image1.jpeg" alt="image1"></p><p>目前人群密度估计的深度卷积神经网络有多种，包括 single-CNN、 multi-column CNN、multi-network CNN、multi-scale CNN、adapting CNN 等。 single-CNN 采用单列神经网络估计人群密度图，但是受限于获取图片多尺度信息 而难以达到更好地效果;multi-column CNN 采用多列卷积神经网络，每列网络使 用不同尺寸的卷积核，更充分地获取图片尺度信息并且达到良好效果，此外 multi-network CNN 采用深浅两列网络以解决空间分辨率问题，但是 Multi-column/network 有两个缺点:一点是需要预训练单列网络以达到全局优化， 为端到端训练增加复杂度，另一点是引入更多的参数，消耗更大的计算资源。而 multi-scale CNN 采用单列网络+多尺度卷积核的方式，下图为 MSCNN 的神经网 络结构图:</p><p><img src="/2019/01/10/基于多列卷积神经网络的单图像人群计数/image2.png" alt="image2"></p><p>其中每层网络分为 9<em>9、7</em>7、5<em>5、3</em>3 四种尺度卷积核，如下图所示:</p><p><img src="/2019/01/10/基于多列卷积神经网络的单图像人群计数/image3.png" alt="image3"></p><p>MSCNN 既克服图片尺度变化问题，又克服多元网络的参数过多、全局优化困难 等问题，故在本项目最终采用 MSCNN 作为本项目的核心算法。而 ACNN 充分 利用摄像头角度信息训练网络，但是由于精力有限没有进一步实践 ACNN 算法。</p></li></ol><h4 id="实际操作"><a class="markdownIt-Anchor" href="#实际操作"></a> 实际操作</h4><p>​语言使用python，并导入open-cv模块对图像进行处理以及MCNN和numpy等核心模块，数据集为从网络下载，并使用matlab为测试数据创建地面实况文件和创建训练和validataion集以及地面实况文件</p><p>​github: <a href="https://github.com/DemoMath/Density-detection" target="_blank" rel="noopener">https://github.com/DemoMath/Density-detection</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;核心实验&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#核心实验&quot;&gt;&lt;/a&gt; 核心实验&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;手动提取特征回归人数&lt;/p&gt;
+&lt;p&gt;a) 解决人群计数问题的传统的做法是手动设计并提取各种特征(Hand-cra
+      
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://wudiblog.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="机器学习" scheme="http://wudiblog.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="北航" scheme="http://wudiblog.com/tags/%E5%8C%97%E8%88%AA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>考上北航了</title>
+    <link href="http://wudiblog.com/2018/09/15/%E8%80%83%E4%B8%8A%E5%8C%97%E8%88%AA%E4%BA%86/"/>
+    <id>http://wudiblog.com/2018/09/15/考上北航了/</id>
+    <published>2018-09-15T08:02:12.000Z</published>
+    <updated>2019-02-02T08:19:44.341Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/2018/09/15/考上北航了/image1.png" alt="image1"></p><p>北航东门</p><p>​       将近一年的时间心心念念的愿望终于实现了，还记得大学离开学校的时候就对人说过，以后有机会我也要考研究生（虽然当时我的成绩差的不能再差…），最后还是下决心去尝试了，结果还不错</p><p><img src="/2018/09/15/考上北航了/image2.png" alt="image2"></p><p>校内的博物馆</p><p>小时候我可是有一个开飞机，开火箭的梦想啊</p><p>天道酬勤，继续加油吧！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/2018/09/15/考上北航了/image1.png&quot; alt=&quot;image1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;北航东门&lt;/p&gt;
+&lt;p&gt;​       将近一年的时间心心念念的愿望终于实现了，还记得大学离开学校的时候就对人说过，以后有机会我也要考研究生（虽然当时我
+      
+    
+    </summary>
+    
+      <category term="北航" scheme="http://wudiblog.com/categories/%E5%8C%97%E8%88%AA/"/>
+    
+    
+      <category term="北航" scheme="http://wudiblog.com/tags/%E5%8C%97%E8%88%AA/"/>
+    
+      <category term="学习" scheme="http://wudiblog.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>网安5000G资源</title>
