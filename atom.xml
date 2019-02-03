@@ -10,7 +10,7 @@
   <id>http://wudiblog.com/</id>
   
   <author>
-    <name>大太阳</name>
+    <name>DemoMath</name>
     
   </author>
   
@@ -279,9 +279,9 @@
       <category term="计算机网络" scheme="http://wudiblog.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="计算机网络" scheme="http://wudiblog.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
       <category term="DNS" scheme="http://wudiblog.com/tags/DNS/"/>
+    
+      <category term="计算机网络" scheme="http://wudiblog.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -463,9 +463,9 @@
       <category term="计算机网络" scheme="http://wudiblog.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="OSI" scheme="http://wudiblog.com/tags/OSI/"/>
-    
       <category term="计算机网络" scheme="http://wudiblog.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+      <category term="OSI" scheme="http://wudiblog.com/tags/OSI/"/>
     
       <category term="TCP/IP" scheme="http://wudiblog.com/tags/TCP-IP/"/>
     
@@ -498,11 +498,11 @@
       <category term="计算机网络" scheme="http://wudiblog.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
+      <category term="计算机网络" scheme="http://wudiblog.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
       <category term="ISO" scheme="http://wudiblog.com/tags/ISO/"/>
     
       <category term="OSI" scheme="http://wudiblog.com/tags/OSI/"/>
-    
-      <category term="计算机网络" scheme="http://wudiblog.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
