@@ -19,7 +19,7 @@
   
   <title>DNS作用以及讲解 | 爱学习的大太阳</title>
   <meta name="description" content="不配置DNS是不能访问互联网的 Domain Name System的缩写，域名系统的缩写，又叫名称解析 名称解析概述  在互联网中，通过IP地址来进行通信 IP地址用数字表示，记忆起来比较困难 人对域名更加敏感  在DNS出现之前，我们有hosts文件（静态IP和域名对应），优先级比DNS更高 从Hosts文件到DNS  早期Hosts文件解析域名  名称解析效能下降 主机维护困难   DNS服">
-<meta name="keywords" content="DNS,计算机网络">
+<meta name="keywords" content="计算机网络,DNS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNS作用以及讲解">
 <meta property="og:url" content="http://wudiblog.com/2017/01/12/DNS作用以及讲解/index.html">
@@ -47,8 +47,6 @@
   
     <link href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.3.5/dist/jquery.fancybox.min.css" rel="stylesheet">
   
-  
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.css">
   
 </head>
 
@@ -499,7 +497,7 @@
     
   <section id="comments">
   	
-           
+      <div id="vcomments"></div>
     
   </section>
 
@@ -644,23 +642,29 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
    
     
-  <!-- <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css"> -->
-  <script src="//cdn.jsdelivr.net/npm/gitalk@1.4.0/dist/gitalk.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
   <script type="text/javascript">
-  var gitalk = new Gitalk({
-    clientID: 'eead254f4a7bb800557d',
-    clientSecret: 'bd56a2ab1641318727e7cf680bbaa1eb8f1ef805',
-    repo: 'Comments',
-    owner: 'DemoMath',
-    admin: ['DemoMath'],
-    id: md5(location.pathname),
-    distractionFreeMode: true
-  })
-  gitalk.render('comments')
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: true,
+    notify: false,
+    appId: 'RW24VmjG0aMyH3kJvt0IWfzw-gzGzoHsz',
+    appKey: 'XG0vQGmIYAQoWsvrHYNGwME3',
+    placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
   </script>
 
-      
+     
 
 
 
