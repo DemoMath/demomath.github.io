@@ -17,23 +17,23 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>【性能优化】启动优化实践 | 爱学习的大太阳</title>
+  <title>【性能优化】内存优化实践 | 爱学习的大太阳</title>
   <meta name="description" content="在Android当中启动优化至关重要，用以给用户良好的体验，避免用户一安装应用就卸载   启动的分类   冷启动  冷启动是指APP在手机启动后第一次运行，或者APP进程被kill掉后在再次启动。 冷启动的必要条件是该APP进程不存在，这就意味着系统需要创建进程，APP需要初始化。在这三种启动方式中，冷启动耗时最长，对于冷启动的优化也是最具挑战的。因此本文重点谈论的是对冷启动相关的优化。">
 <meta name="keywords" content="Android,性能优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【性能优化】启动优化实践">
-<meta property="og:url" content="http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/index.html">
+<meta property="og:title" content="【性能优化】内存优化实践">
+<meta property="og:url" content="http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/index.html">
 <meta property="og:site_name" content="爱学习的大太阳">
 <meta property="og:description" content="在Android当中启动优化至关重要，用以给用户良好的体验，避免用户一安装应用就卸载   启动的分类   冷启动  冷启动是指APP在手机启动后第一次运行，或者APP进程被kill掉后在再次启动。 冷启动的必要条件是该APP进程不存在，这就意味着系统需要创建进程，APP需要初始化。在这三种启动方式中，冷启动耗时最长，对于冷启动的优化也是最具挑战的。因此本文重点谈论的是对冷启动相关的优化。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/image1.png">
-<meta property="og:updated_time" content="2020-06-03T08:05:13.430Z">
+<meta property="og:image" content="http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/image1.png">
+<meta property="og:updated_time" content="2020-06-03T08:02:36.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【性能优化】启动优化实践">
+<meta name="twitter:title" content="【性能优化】内存优化实践">
 <meta name="twitter:description" content="在Android当中启动优化至关重要，用以给用户良好的体验，避免用户一安装应用就卸载   启动的分类   冷启动  冷启动是指APP在手机启动后第一次运行，或者APP进程被kill掉后在再次启动。 冷启动的必要条件是该APP进程不存在，这就意味着系统需要创建进程，APP需要初始化。在这三种启动方式中，冷启动耗时最长，对于冷启动的优化也是最具挑战的。因此本文重点谈论的是对冷启动相关的优化。">
-<meta name="twitter:image" content="http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/image1.png">
+<meta name="twitter:image" content="http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/image1.png">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/index.html">
+  <link rel="canonical" href="http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/index.html">
   
     <link rel="alternate" href="/atom.xml" title="爱学习的大太阳" type="application/atom+xml">
   
@@ -386,14 +386,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-【性能优化】启动优化实践" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <article id="post-【性能优化】内存优化实践" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      【性能优化】启动优化实践
+      【性能优化】内存优化实践
     </h1>
   
 
@@ -401,8 +401,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2020/06/03/【性能优化】启动优化实践/" class="article-date">
-	  <time datetime="2020-06-03T02:22:00.000Z" itemprop="datePublished">2020-06-03</time>
+	<a href="/2020/06/03/【性能优化】内存优化实践/" class="article-date">
+	  <time datetime="2020-06-03T04:22:00.000Z" itemprop="datePublished">2020-06-03</time>
 	</a>
 </span>
         
@@ -427,7 +427,7 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/03/【性能优化】启动优化实践/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2020/06/03/【性能优化】内存优化实践/#comments" class="article-comment-link">评论</a></span>
         
 	
 		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.8k(字)</span>
@@ -475,7 +475,7 @@
 <p>​		当点击APP的启动图标时，安卓系统会从Zygote进程中fork创建出一个新的进程分配给该应用，之后会依次创建和初始化Application类，创建MainActivity类，加载主题样式中的windowBackground等属性设置给MainActivity以及配置Activity层级上的一些属性，再inflate布局，当onCreate/onStart/onResume方法都走完了后最后才执行contentView的measure/layout/draw显示在界面上</p>
 <p>​		总结下来就是</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Application的构造器方法--&gt;attchBaseContext()--&gt;onCreate()--&gt;Activity的构造方法--&gt;onCreate()--&gt;配置主题中背景属性--&gt;onStart()--&gt;onResume()--&gt;测量布局绘制显示在界面上</span><br></pre></td></tr></table></figure>
-<p><img src="/2020/06/03/【性能优化】启动优化实践/image1.png" alt="image1"></p>
+<p><img src="/2020/06/03/【性能优化】内存优化实践/image1.png" alt="image1"></p>
 <p>这里很明显有两个优化点：</p>
 <ul>
 <li>
@@ -546,7 +546,6 @@
 <li>考虑异步初始化三方组件，不阻塞主线程，实际上我们粗粒度的把所有三方组件都放到异步任务里，可能会出现WorkThread中尚未初始化完毕但MainThread中已经使用的错误，因此这种情况建议延迟到使用前再去初始化；</li>
 <li>三方SDK改为懒加载，不在Application OnCreate()时初始化，在真正用到的时候再去加载。</li>
 <li>当首页面打开完成后，发送消息通知初始化操作，与第一点相似，适用于MainThread在启动打开页面过程中不用到的初始化</li>
-<li>通过在Splash页面停留做初始化</li>
 </ul>
 <p><strong>异步</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">initThirdService</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">new</span> Thread()&#123;</span><br><span class="line">				<span class="meta">@Override</span></span><br><span class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">						<span class="keyword">super</span>.run();</span><br><span class="line">						<span class="comment">//;初始化第三方库</span></span><br><span class="line">				&#125;</span><br><span class="line">		</span><br><span class="line">		&#125;.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -584,7 +583,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/" title="【性能优化】启动优化实践" target="_blank" rel="external">http://wudiblog.com/2020/06/03/【性能优化】启动优化实践/</a>
+      <a href="http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/" title="【性能优化】内存优化实践" target="_blank" rel="external">http://wudiblog.com/2020/06/03/【性能优化】内存优化实践/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -630,13 +629,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2020/06/03/【性能优化】内存优化实践/" title="【性能优化】内存优化实践"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/2020/06/02/view绘制与activity生命周期的关系/" title="view与activity生命周期的关系"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/2020/06/03/【性能优化】启动优化实践/" title="【性能优化】启动优化实践"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     
